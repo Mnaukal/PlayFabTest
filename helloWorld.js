@@ -22,9 +22,11 @@ handlers.postScore = function (args)
         {
             server.UpdatePlayerStatistics({
                 PlayFabId: currentPlayerId,
-                Statistics: [
-                    StatisticName: "Score",
-                    Value: args.score
+                Statistics: [ 
+                    {
+                        StatisticName: "Score",
+                        Value: args.score
+                    }
                 ]
             });
             updated = true;

@@ -20,6 +20,7 @@ handlers.postScore = function (args)
     }).Statistics[0].Value;
     
     var updated = false;
+    var newScore = currentScore;
     if(args.score > currentScore)
         {
             server.UpdatePlayerStatistics({
@@ -32,9 +33,10 @@ handlers.postScore = function (args)
                 ]
             });
             updated = true;
+            newScore = args.score;
         }
     return { 
-        newScore: args.score, 
+        newScore: newScore, 
         updated: updated
     }
 }

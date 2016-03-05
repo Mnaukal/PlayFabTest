@@ -4,7 +4,7 @@ handlers.helloWorld = function (args)
         PlayFabId: currentPlayerId
     });
     
-    var message = "Args: " + args.name + "User: " + userInfo.Username;
+    var message = "Args: " + args.name + ", ID: " + currentPlayerId + ", User: " + userInfo.Username;
     log.info(message);
     return { messageValue: message };
 }

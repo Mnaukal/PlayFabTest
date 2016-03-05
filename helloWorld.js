@@ -14,8 +14,10 @@ handlers.postScore = function (args)
 {
     var currentScore = server.GetPlayerStatistics({
         PlayFabId: currentPlayerId,
-        StatisticNames: ["score"]
-    }).Statistics[0];
+        StatisticNames: [
+            "Score"
+        ]
+    }).Statistics[0].Value;
     
     var updated = false;
     if(args.score > currentScore)

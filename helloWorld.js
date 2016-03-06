@@ -12,12 +12,19 @@ handlers.helloWorld = function (args)
 // update args.score if it's better 
 handlers.postScore = function (args)
 {
-    var currentScore = server.GetPlayerStatistics({
-        PlayFabId: currentPlayerId,
-        StatisticNames: [
-            "Score"
-        ]
-    }).Statistics[0].Value;
+    var currentScore;
+    try {
+        currentScore = server.GetPlayerStatistics({
+            PlayFabId: currentPlayerId,
+            StatisticNames: [
+                "Score"
+            ]
+        }).Statistics[0].Value;
+    }
+    catch (e)
+        {
+            currentScore = -1000000;
+        }
     
     var updated = false;
     var newScore = currentScore;
